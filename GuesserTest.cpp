@@ -23,21 +23,21 @@ class GuesserTest : public ::testing::Test
 
 TEST(GuesserTest, empty_string)
 {
-	Guesser guess;
+	Guesser guess("");
 	ASSERT_FALSE(guess.Guesser(string secret("")));
 }
 
 TEST(GuesserTest, over_32){
-	Guesser guess;
-	ASSERT_EQ(36, guess.Guesser("abcdefghijklmnopqrstuvwxyzabcdefghik"));
+	Guesser guess("abcdefghijklmnopqrstuvwxyzabcdefghik");
+	ASSERT_EQ(36, 32);
 }
 
 TEST(GuesserTest, supposed_to_locked){
-	Guesser guess;
+	Guesser guess("Secret");
 	ASSERT_FALSE(guess.match(0));
 }
 
 TEST(GuesserTest, when_right){
-	Guesser guess;
+	Guesser guess("Hello");
 	ASSERT_EQ(3, guess.distance());
 }
